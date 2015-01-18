@@ -1,1 +1,38 @@
-Action "index", controller "Role", module "Usermgmt".
+<?php 
+ $title = 'My albums';
+ $this->headTitle($title);
+
+?>
+<div class="row">
+	<div class="col-md-12 panel">
+		<h1>Role Management</h1>
+	</div>
+	<div class="col-md-12">
+		<div class="col-md-4">
+			<h4>options</h4>
+			<a class="btn btn-primary small" href="<?php echo $this->url('role', array('action'=>'add'));?>">	Add role </a>
+		</div>
+		<div class="col-md-8">
+			<h4>Roles </h4>
+			<table class="table">
+				<thead>
+					<th>Id</th>
+					<th>Role</th>
+					<th>options</th>
+				</thead>
+				<tbody>
+					<?php foreach ($roles as $idx => $role) { ?>
+					<tr>
+						<td><?php echo $role->id;?></td>
+						<td><?php echo $role->name;?></td>
+						<td>
+							<a class="btn btn-primary" href="<?php echo $this->url('role',array('action'=>'edit','id'=>$role->id));?>">Edit</a>
+							<a class="btn btn-danger" href="<?php echo $this->url('role',array('action'=>'delete','id'=>$role->id))?>"onClick="return confirm(\" are you sure?\")">Delete</a>
+						</td>
+					</tr>
+					<?php } ?>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
