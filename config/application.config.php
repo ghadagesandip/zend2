@@ -5,6 +5,7 @@
  *
  * @see https://github.com/zendframework/ZFTool
  */
+ini_set('display_errors', 1);
 return array(
     'modules' => array(
         'Application',
