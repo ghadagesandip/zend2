@@ -20,6 +20,9 @@
              'options' => array(
                  'label' => 'Title',
              ),
+             'attributes'=>array(
+                'class'=>'form-control'
+              )
          ));
          $this->add(array(
              'name' => 'artist',
@@ -27,6 +30,9 @@
              'options' => array(
                  'label' => 'Artist',
              ),
+             'attributes'=>array(
+                'class'=>'form-control'
+              )
          ));
          $this->add(array(
              'name' => 'submit',
@@ -34,7 +40,18 @@
              'attributes' => array(
                  'value' => 'Go',
                  'id' => 'submitbutton',
+                 'class'=>'btn btn-primary'
              ),
          ));
+
+         $this->add(array(
+             'name' => 'reset',
+             'type' => 'button',
+             'attributes' => array(
+                 'value' => 'Reset',
+                 'id' => 'resetbutton',
+                 'class'=>'btn btn-default'
+             ),
+         )); 
      }
  }
