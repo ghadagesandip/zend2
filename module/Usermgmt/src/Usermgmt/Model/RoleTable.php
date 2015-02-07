@@ -28,6 +28,25 @@ class RoleTable{
  		return $row;
  	}
 
+ 	public function saveRole(Role $role){
+ 		$data = array(
+ 			'name'=>$role->name,
+ 		);
+
+ 		$id = (int)$role->id;
+ 		if($id==0){
+ 			$this->tableGateway->insert($data);
+ 		}else{
+ 			if($this->getRole($id)){
+ 				$this->tableGateway->update($data,array('id'=>$id));
+ 			}else{
+ 				throw new Exception("Role doesnot exist", 1);
+ 				
+ 			}
+ 		}
+ 	}
+
+
  	public function deleteRole($id){
  		$id = (int) $id;
  		$this->tableGateway->delete(array('id'=>$id));

@@ -5,10 +5,12 @@
  *
  * @see https://github.com/zendframework/ZFTool
  */
+ini_set('display_errors', 1);
 return array(
     'modules' => array(
         'Application',
-        'Usermgmt'
+        'Usermgmt',
+        'Album'
     ),
     'module_listener_options' => array(
         'module_paths' => array(

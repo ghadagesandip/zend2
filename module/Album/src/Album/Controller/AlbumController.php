@@ -115,7 +115,7 @@ class AlbumController extends AbstractActionController
             $del = $request->getPost('del','No');
              if($del=='Yes'){
                 $this->getAlbumTable()->deleteAlbum($id);
-                $this->flashMessenger()->addMessage('Record deleted successfully');
+                $this->flashMessenger->addMessage('Record deleted successfully');
                 return $this->redirect()->toRoute('album');
             }
 

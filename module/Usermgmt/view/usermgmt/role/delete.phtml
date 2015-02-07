@@ -1,3 +1,19 @@
-Module: Usermgmt
-Controller: Role
-Action: delete
+<?php 
+
+$title = 'Delete Role';
+$this->headTitle($title);
+?>
+
+<h1><?php echo $this->escapeHtml($title);?></h1>		
+
+<?php $url = $this->url('role',array('action'=>'delete','id'=>$id));?>
+
+<form action="<?php echo $url;?>" method="post">
+	<div class="form-group">
+		<input type="hidden" name="id" value="<?php echo (int) $role->id;?>">
+		<input type="submit" name="del" value="Yes" class="btn btn-primary">
+		<input type="submit" name="del" value="No" class="btn btn-warning">
+		<a class="btn btn-default" href="<?php echo $this->url('role');?>">Cancel</a>
+	</div>
+</form>
+

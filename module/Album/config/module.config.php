@@ -6,6 +6,11 @@
          ),
      ),
 
+    'view_manager' => array(
+         'template_path_stack' => array(
+             'album' => __DIR__ . '/../view',
+         ),
+    ),
      // The following section is new and should be added to your file
      'router' => array(
          'routes' => array(
@@ -26,9 +31,5 @@
          ),
      ),
 
-     'view_manager' => array(
-         'template_path_stack' => array(
-             'album' => __DIR__ . '/../view',
-         ),
-     ),
+    
  );
