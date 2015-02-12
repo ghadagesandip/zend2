@@ -1,5 +1,11 @@
-<?php
+	<?php
 return array(
+	'service_manager' => array(
+         'invokables' => array(
+             'Blog\Service\PostServiceInterface' => 'Blog\Service\PostService'
+         )
+     ),
+
 
 	'router'=>array(
 		'routes'=>array(
@@ -7,8 +13,8 @@ return array(
 				'type'=>'literal',
 				'options'=>array(
 					'route'=>'/blog',
-					'default'=>array(
-						'controller'=>'Blog\controller\List',
+					'defaults'=>array(
+						'controller'=>'Blog\Controller\List',
 						'action'=>'index'
 					)
 				)
@@ -17,8 +23,8 @@ return array(
 	),
 
 	'controllers'=>array(
-		'invokables'=>array(
-			'Blog\controllers\List' => 'Blog\controllers\ListController'
+		'factories'=>array(
+			'Blog\Controller\List' => 'Blog\Factory\ListControllerFactory'
 		)
 	),
 

@@ -16,6 +16,23 @@ class Post implements PostInterface{
 	public function setId($id){
 		$this->id = $id;
 	}
+
+	public function getTitle(){
+		return $this->title;
+	}
+
+	public function setTitle($title){
+		$this->title = $title;
+	}
+	
+
+	public fuction getText(){
+		$this->text;
+	}
+
+	public function setText($text){
+		$this->text = $text;
+	}
 }
 
 
