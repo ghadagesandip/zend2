@@ -1,5 +1,4 @@
 <?php
-
 namespace Blog\Controller;
 
 use Blog\Service\PostServiceInterface;
@@ -18,7 +17,11 @@ class ListController extends AbstractActionController
 
     public function indexAction()
     {
-        return new ViewModel();
+
+            $posts = $this->postService->findAllPosts();
+            return new ViewModel(array('posts'=>$posts));
+            //return array('posts'=>$posts);
+
     }
 
 

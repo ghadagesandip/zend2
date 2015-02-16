@@ -5,14 +5,13 @@
  *
  * @see https://github.com/zendframework/ZFTool
  */
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
 return array(
     'modules' => array(
         'Application',
         'Usermgmt',
         'Album',
-        'Blog'
+        'Blog',
+        'Checklist'
     ),
     'module_listener_options' => array(
         'module_paths' => array(

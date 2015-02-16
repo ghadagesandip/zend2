@@ -1,1 +1,10 @@
-<h1>Blog\ListController::indexAction()</h1>
+<h1>Blog<h1>
+
+<?php foreach($posts as $post){ ?>
+    <article>
+    <h1 id="post<?= $post['id'] ?>"><?php echo $post['title'] ?></h1>
+         <p>
+             <?php echo $post['text']; ?>
+         </p>
+    </article>
+<?php }  ?>

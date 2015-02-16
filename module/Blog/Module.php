@@ -3,6 +3,7 @@ namespace Blog;
 
 use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
 use Zend\ModuleManager\Feature\ConfigProviderInterface;
+
 class Module implements ConfigProviderInterface,AutoloaderProviderInterface
 {
 
