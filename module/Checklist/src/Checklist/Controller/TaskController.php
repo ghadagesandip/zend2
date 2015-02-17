@@ -1,6 +1,8 @@
 <?php
 namespace Checklist\Controller;
+
 use Zend\Mvc\Controller\AbstractActionController;
+use Zend\View\Model\ViewModel;
 
 class TaskController extends AbstractActionController
 {
@@ -12,11 +14,10 @@ class TaskController extends AbstractActionController
 
 	public function indexAction(){
 
-		$mapper = $this->TaskMapper();
-		$task = $mapper->fetchAll();
-		echo '<pre>'; print_r($task);exit;
-
-		return new ViewModel(array('task'=>$task));
+		$mapper = $this->getTaskMapper();
+		$tasks = $mapper->fetchAll();
+		//echo '<pre>'; print_r($tasks);exit;
+		return new ViewModel(array('tasks'=>$tasks));	
 	}
 
 }

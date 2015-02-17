@@ -1,5 +1,4 @@
 <?php
-
 namespace Checklist\Model;
 
 use Zend\Db\Adapter\Adapter;
@@ -16,7 +15,7 @@ class TaskMapper{
 	protected $sql;
 
 	public function __construct(Adapter $dbAdaptor){
-		$this->dbAdaptor->$dbAdaptor;
+		$this->dbAdaptor = $dbAdaptor;
 		$this->sql = new Sql($dbAdaptor);
 		$this->sql->setTable($this->tableName);
 	} 
@@ -26,15 +25,14 @@ class TaskMapper{
 		$select = $this->sql->select();
 		$select->order(array('completed ASC','created ASC'));
 
-		$statement = $this->sql->prepreStatementForSqlObject($select);
+		$statement = $this->sql->prepareStatementForSqlObject($select);
 		$results = $statement->execute();
 
 		$entityPrototype = new TaskEntity();
-		$hydrator	new ClassMethods();
+		$hydrator =	new ClassMethods();
 		$resultSet = new HydratingResultSet($hydrator, $entityPrototype);
 		$resultSet->initialize($results);
 		return $results;
-
 	}
 
 }

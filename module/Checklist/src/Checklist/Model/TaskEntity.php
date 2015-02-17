@@ -3,7 +3,7 @@ namespace Checklist\Model;
 
 class TaskEntity{
 	
-	protected $id
+	protected $id;
 	protected $title;
 	protected $completed = 0;
 	protected $created;
@@ -29,7 +29,7 @@ class TaskEntity{
 		return $this->title;
 	}
 
-	public function setCompleted($$completed){
+	public function setCompleted($completed){
 		$this->completed = $completed;
 	}
 
