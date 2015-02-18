@@ -20,4 +20,8 @@ class TaskController extends AbstractActionController
 		return new ViewModel(array('tasks'=>$tasks));	
 	}
 
+	public function addAction(){
+		
+	}
+
 }
