@@ -14,9 +14,9 @@ class TaskMapper{
 	protected $dbAdaptor;
 	protected $sql;
 
-	public function __construct(Adapter $dbAdaptor){
-		$this->dbAdaptor = $dbAdaptor;
-		$this->sql = new Sql($dbAdaptor);
+	public function __construct(Adapter $dbAdapter){
+		$this->dbAdaptor = $dbAdapter;
+		$this->sql = new Sql($dbAdapter);
 		$this->sql->setTable($this->tableName);
 	} 
 
@@ -30,9 +30,9 @@ class TaskMapper{
 
 		$entityPrototype = new TaskEntity();
 		$hydrator =	new ClassMethods();
-		$resultSet = new HydratingResultSet($hydrator, $entityPrototype);
-		$resultSet->initialize($results);
-		return $results;
+		$resultset = new HydratingResultSet($hydrator, $entityPrototype);
+		$resultset->initialize($results);
+		return $resultset;
 	}
 
 }
