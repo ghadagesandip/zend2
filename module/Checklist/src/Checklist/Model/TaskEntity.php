@@ -12,7 +12,7 @@ class TaskEntity{
 		$this->created = date('Y-m-d H:i:s');
 	}
 
-
+	
 	public function setId($id){
 		$this->id = $id;
 	}
