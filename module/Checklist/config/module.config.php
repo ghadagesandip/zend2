@@ -24,7 +24,7 @@ return array(
 	                    'action'        => 'index',
 	                ),
 	                'constraints' => array(
-	                    'action' => '(add|edit|delete)',
+	                    'action' => '(add|edit|view|delete)',
 	                    'id'     => '[0-9]+',
 	                ),
 	            ),

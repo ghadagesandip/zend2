@@ -16,9 +16,10 @@ class TaskController extends AbstractActionController
 
 	public function indexAction(){
 
-		$mapper = $this->getTaskMapper();
-		$tasks = $mapper->fetchAll();
+		$tasks = $this->getTaskMapper()->fetchAll();
 		//echo '<pre>'; print_r($tasks);exit;
+
+		//return array('tasks'=>$tasks); this also works
 		return new ViewModel(array('tasks'=>$tasks));	
 	}
 
@@ -77,9 +78,10 @@ class TaskController extends AbstractActionController
 		$request = $this->getRequest();
 		if($request->isPost()){
 			if($request->getPost()->get('delete')=='Yes'){
-				$this->getTaskMapper()->deleteTask($id);
+				if($this->getTaskMapper()->deleteTask($id)){
+					$this->flashMessenger()->addMessage('Task deleeted');	
+				}
 			}
-			$this->flashMessenger()->addMessage('Task deleeted');	
 			return $this->redirect()->toRoute('task');
 		}
 
@@ -87,6 +89,12 @@ class TaskController extends AbstractActionController
 			'id'=>$id,
 			'task'=>$task
 		);
+	}
+
+	public function viewAction(){
+		$id = $this->params('id');
+		$task = $this->getTaskMapper()->getTask($id);
+		return new ViewModel(array('task'=>$task));
 
 	}
 }
